@@ -1,7 +1,7 @@
 <template>
    <div class="header">
        <router-link tag="div" to="/" class="header-abs">
-            <div class="iconfont header-abs-back">&#xe658;</div>
+            <div class="iconfont header-abs-back">&#xe659;</div>
         </router-link>
          <div class="header-info">
             <p class="city">{{this.$store.state.forcastCity}}</p>

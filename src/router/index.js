@@ -8,6 +8,11 @@ import Remind from '@/pages/remind/Remind'
 import Mine from '@/pages/mine/Mine'
 import NewsDetail from '@/pages/newsdetail/NewsDetail'
 import WeatherDetail from '@/pages/weatherdetail/Weather'
+import Disneydetail from '@/pages/disneydetail/Disneydetail'
+import Zoodetail from '@/pages/zoodetail/Zoodetail'
+import Mayadetail from '@/pages/mayadetail/Mayadetail'
+import Gardendetail from '@/pages/gardendetail/Gardendetail'
+import Garbagedetail from '@/pages/garbagedetail/Garbagedetail'
 
 
 Vue.use(Router)
@@ -53,7 +58,34 @@ export default new Router({
       path: '/weatherdetail',
       name: 'WeatherDetail',
       component:WeatherDetail
-    }
+    },
+    {
+      path: '/disneydetail',
+      name: 'Disneydetail',
+      component:Disneydetail
+    },
+    {
+      path: '/zoodetail',
+      name: 'Zoodetail',
+      component:Zoodetail
+    },
+    {
+      path: '/mayadetail',
+      name: 'Mayadetail',
+      component:Mayadetail
+    },
+    {
+      path: '/gardendetail',
+      name: 'Gardendetail',
+      component:Gardendetail
+    },
+    {
+      path: '/garbagedetail',
+      name: 'Garbagedetail',
+      component:Garbagedetail
+    },
+
+
     
   ]
 })
