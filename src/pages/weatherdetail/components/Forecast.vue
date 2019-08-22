@@ -2,49 +2,49 @@
    <div class="forecast">
         <ul class="today-info border-bottom" >
                 <li class="info">
-                    <p class="line-1">{{this.datas[0].wind}}</p>
-                    <p class="line-1">{{this.datas[0].level}}</p>
+                    <p class="line-1">{{this.$store.state.weatherList.winddirect}}</p>
+                    <p class="line-1">{{this.$store.state.weatherList.windpower}}</p>
                 </li>
                 <li class="info">
-                    <p class="line-1">能见度</p>
-                    <p class="line-1">{{this.datas[0].visibility}}</p>
+                    <p class="line-1">空气质量</p>
+                    <p class="line-1">{{this.$store.state.weatherList.aqi.aqiinfo.level}}</p>
                 </li>
                 <li class="info">
                     <p class="line-1">湿度</p>
-                    <p class="line-1">{{this.datas[0].humidity}}</p>
+                    <p class="line-1">{{this.$store.state.weatherList.humidity}}%</p>
                 </li>  
         </ul>
         <ul class="forecast-threedays">
-                <li class="days" v-for="item of datas" :key="item.id">
-                    <p class="line-one">{{item.time}}</p>
+                <li class="days">
+                    <p class="line-one">{{this.$store.state.weatherList.daily[1].date}}</p>
                     <div class="icon-line">
                         <div class="icon-wrapper">
-                            <img  class="icon" :src="item.iconUrl" />  
+                            <img  class="icon" :src="this.iconList[this.$store.state.weatherList.daily[1].day.img]" />
                         </div>
                     </div>
-                    <p class="line-one">{{item.status}}</p>
-                    <p class="line-one">{{item.temperature_l}}<span>&#176;</span>/{{item.temperature_h}}<span>&#176;</span></p>
+                    <p class="line-one">{{this.$store.state.weatherList.daily[1].day.weather}}</p>
+                    <p class="line-one">{{this.$store.state.weatherList.daily[1].night.templow}}<span>&#176;</span>/{{this.$store.state.weatherList.daily[1].day.temphigh}}<span>&#176;</span></p>
                 </li>
-            <!-- <li class="days">
-                <p class="line-one">{{this.datas[1].time}}</p>
-                <div class="icon-line">
-                    <div class="icon-wrapper">
-                        <img  class="icon" :src="this.datas[1].iconUrl" />  
+                <li class="days">
+                    <p class="line-one">{{this.$store.state.weatherList.daily[2].date}}</p>
+                    <div class="icon-line">
+                        <div class="icon-wrapper">
+                            <img  class="icon" :src="this.iconList[this.$store.state.weatherList.daily[2].day.img]" />
+                        </div>
                     </div>
-                </div>
-                <p class="line-one">{{this.datas[1].status}}</p>
-                <p class="line-one">{{this.datas[1].temperature_l}}<span>&#176;</span>/{{this.datas[1].temperature_h}}<span>&#176;</span></p>
-            </li>
-            <li class="days">
-                <p class="line-one">{{this.datas[2].time}}</p>
-                <div class="icon-line">
-                    <div class="icon-wrapper">
-                        <img  class="icon" :src="this.datas[2].iconUrl" />  
+                    <p class="line-one">{{this.$store.state.weatherList.daily[2].day.weather}}</p>
+                    <p class="line-one">{{this.$store.state.weatherList.daily[2].night.templow}}<span>&#176;</span>/{{this.$store.state.weatherList.daily[2].day.temphigh}}<span>&#176;</span></p>
+                </li>
+                <li class="days">
+                    <p class="line-one">{{this.$store.state.weatherList.daily[3].date}}</p>
+                    <div class="icon-line">
+                        <div class="icon-wrapper">
+                            <img  class="icon" :src="this.iconList[this.$store.state.weatherList.daily[3].day.img]" />
+                        </div>
                     </div>
-                </div>
-                <p class="line-one">{{this.datas[2].status}}</p>
-                <p class="line-one">{{this.datas[2].temperature_l}}<span>&#176;</span>/{{this.datas[1].temperature_h}}<span>&#176;</span></p>
-            </li>-->
+                    <p class="line-one">{{this.$store.state.weatherList.daily[3].day.weather}}</p>
+                    <p class="line-one">{{this.$store.state.weatherList.daily[3].night.templow}}<span>&#176;</span>/{{this.$store.state.weatherList.daily[3].day.temphigh}}<span>&#176;</span></p>
+                </li>
         </ul>
    </div>
 </template>
@@ -53,40 +53,27 @@ export default {
     name:'WeatherForecast',
     data (){
         return{
-            datas:[{
-                id:'01',
-                time:'2019-07-24',
-                iconUrl:'https://s1.sencdn.com/web/icons/black/7@1x.png',
-                status:'多云',
-                temperature_l:'28',
-                temperature_h:'37',
-                wind:' 西南风',
-                level:'3级',
-                visibility:'10km',
-                humidity:'66%'
-            },{
-                id:'02',
-                time:'2019-07-25',
-                iconUrl:'https://s1.sencdn.com/web/icons/black/7@1x.png',
-                status:'多云',
-                temperature_l:'28',
-                temperature_h:'37',
-                wind:' 西南风',
-                level:'3级',
-                visibility:'10km',
-                humidity:'66%'
-            },{
-                id:'03',
-                time:'2019-07-26',
-                iconUrl:'https://s1.sencdn.com/web/icons/black/7@1x.png',
-                status:'多云',
-                temperature_l:'28',
-                temperature_h:'37',
-                wind:' 西南风',
-                level:'3级',
-                visibility:'10km',
-                humidity:'66%'
-            }]
+            iconList:[ 
+                        'https://s1.sencdn.com/web/icons/black/0@1x.png',                 
+                        'https://s5.sencdn.com/web/icons/black/4@1x.png',
+                        'https://s4.sencdn.com/web/icons/black/9@1x.png',        
+                        'https://s4.sencdn.com/web/icons/black/10@1x.png',                         
+                        'https://s4.sencdn.com/web/icons/black/11@1x.png',                          
+                        'https://s1.sencdn.com/web/icons/black/12@1x.png',                      
+                        'https://s5.sencdn.com/web/icons/black/20@1x.png',                      
+                        'https://s1.sencdn.com/web/icons/black/13@1x.png',                
+                        'https://s1.sencdn.com/web/icons/black/0@1x.png',                   
+                        'https://s5.sencdn.com/web/icons/black/4@1x.png',               
+                        'https://s4.sencdn.com/web/icons/black/9@1x.png',              
+                        'https://s4.sencdn.com/web/icons/black/10@1x.png',            
+                        'https://s4.sencdn.com/web/icons/black/11@1x.png',                         
+                        'https://s1.sencdn.com/web/icons/black/12@1x.png',                   
+                        'https://s5.sencdn.com/web/icons/black/20@1x.png',                        
+                        'https://s1.sencdn.com/web/icons/black/13@1x.png',                         
+                         'https://s1.sencdn.com/web/icons/black/12@1x.png',                          
+                         'https://s5.sencdn.com/web/icons/black/20@1x.png',                           
+                         'https://s1.sencdn.com/web/icons/black/13@1x.png'                         
+                    ]  
         }
     }
     

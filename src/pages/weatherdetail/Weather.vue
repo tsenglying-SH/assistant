@@ -1,9 +1,8 @@
 <template>
    <div> 
        <weather-img></weather-img>
-       <weather-header :location="location"
-        :update="last_update"></weather-header>
-        <weather-info :now="now"></weather-info>
+       <weather-header ></weather-header>
+        <weather-info ></weather-info>
         <weather-forecast></weather-forecast>
    </div>
 </template>
@@ -28,19 +27,7 @@ export default {
             last_update:""
         }
     },
-    mounted (){
-        this.getWeatherInfo()
-    },
-    methods:{
-        getWeatherInfo (){
-            axios.get('/api/now.json?key=SHMXyPLmxedgN3Oir&location=' + this.$store.state.city + '&language=zh-Hans&unit=c')
-                .then( res=>{
-                    // console.log(res.data.results[0])
-                    this.$store.commit('getLocation',res.data.results[0].location);
-                    this.$store.commit('getNow',res.data.results[0].now);
-                    this.$store.commit('getLast_update',res.data.results[0].last_update);
-                    })
-            },
+    
         // getWeatherInfoSucc (res){
         //     res=res.data
         //     if (res.results){
@@ -51,7 +38,7 @@ export default {
         //     }
             
         // }
-    }
+    
 }
 </script>
 

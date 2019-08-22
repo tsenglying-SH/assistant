@@ -59,9 +59,8 @@ export default {
             left:1rem 
             right:1rem 
             bottom:2 rem
-            background:blue
+            background:rgba(0,0,255,0.8)
             color:white
-            opacity:0.7
             border-radius:.5rem 
             .name
                 height:1rem 

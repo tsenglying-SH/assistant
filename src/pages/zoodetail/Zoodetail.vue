@@ -2,7 +2,7 @@
     <div>
         <detail-banner></detail-banner>
         <detail-header></detail-header>
-        <detail-list :list="list"></detail-list>
+        <detail-list :list1="list1"  :list2="list2"></detail-list>
     </div>
 
 </template>
@@ -14,28 +14,44 @@ export default {
     name:'Zoodetail',
     data (){
         return{
-            list:[{
-                title:'成人票',
-                children:[{
-                           title:'成人二联票',
-                            
-                        },
-                        {
-                            title:'成人三联票'
-                        },
-                        {
-                            title:'成人五联票'
-                        }]
-
+            list1:[{
+                title:'【即买即用】成人票', money:'122'
             },
             {
-                title:'儿童票'
+                title:'【即买即用】学生票',money:'65'
             },
             {
-                title:'老人票'
+                title:'【早订优惠】成人票',money:'118'
             },
             {
-                title:'特价票'
+                title:'【早订优惠】学生票',money:'65'
+            },
+            {
+                title:'【亲子票】1大1小票',money:'185'
+            },
+            {
+                title:'【家庭票】2大1小票',money:'280'
+            },
+            {
+                title:'双人票',money:'240'
+            },],
+            list2:[{
+                title:'【即买即用】夜场票', money:'55'
+            },
+            {
+                title:'【早订早惠】夜场票',money:'55'
+            },
+            {
+                title:'【夜场票】门票+马戏票',money:'105'
+            },
+            {
+                title:'【夜场票】门票+水域探秘游船', money:'95'
+            },
+            {
+                title:'【夜场票】门票+摩天轮',money:'50'
+            },
+            {
+                title:'【夜场早订优惠】学生票',money:'30'
             },]
         }
     },

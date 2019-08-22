@@ -2,8 +2,10 @@
    <div class=garbage> 
        <garbage-header></garbage-header>
        <div class="header-img"></div>
-       <garbage-search></garbage-search>
-       <garbage-classfication></garbage-classfication>  
+       <garbage-search @getClass="handleGetClass"
+       @getNone="handleGetNone"></garbage-search>
+       <garbage-classfication :classfication="classfication"
+       ref="judge"></garbage-classfication>  
    </div>
 </template>
 <script>
@@ -17,6 +19,34 @@ export default {
          GarbageHeader,
          GarbageClassfication
 
+    },
+    data (){
+        return{
+            classfication:'',
+        }
+    },
+    methods:{
+        handleGetClass (letter){
+             
+            this.classfication=letter
+            if(this.classfication==='干垃圾'){
+                this.$refs.judge.fatherShow3()
+            }else{
+                if(this.classfication==='可回收垃圾'){
+                    this.$refs.judge.fatherShow1()
+                }else{
+                    if(this.classfication==='湿垃圾'){
+                        this.$refs.judge.fatherShow2()
+                    }else{
+                        this.$refs.judge.fatherShow4()
+                    }
+                }
+            }
+                
+        },
+        handleGetNone (){
+            this.$refs.judge.fatherShow5()
+        }
     }
     
 }
@@ -27,7 +57,7 @@ export default {
         margin: 0rem auto 0.1rem
         width: 7.3rem
         height: 2.8rem
-        background: url(http://pic.ibaotu.com/00/02/65/44v888piChdK.jpg-1.jpg!ww700)  center
-        background-size: 100%
+        background: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2011875315,1554157991&fm=26&gp=0.jpg)  center
+        background-size: 110%
 
     </style>

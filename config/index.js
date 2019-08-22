@@ -12,10 +12,10 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target: 'https://api.seniverse.com',
+        target: 'https://api.jisuapi.com',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '/v3/weather'
+          '^/api': '/weather'
         }
       },
       '/news':{
@@ -25,6 +25,14 @@ module.exports = {
           '^/news': '/news'
         }
       },
+      '/getgarbagebyname':{
+        target: 'http://localhost:8090',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/getgarbagebyname': '/test1/getgarbagebyname'
+        }
+      },
+
 
     },
 

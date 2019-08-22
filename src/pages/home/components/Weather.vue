@@ -5,22 +5,23 @@
                 <img class="weather-img" src="https://api.neweb.top/bing.php?type=rand"/>
                     <div class="info-wrapper">
                             <div class="weather-left">
-                                <div class="img-wrapper">  
-                                    <img class="left-weather-logo" :src="this.iconList[this.$store.state.code]" />
+                                <div class="img-wrapper">
+                                    <!-- <img class="left-weather-logo" :src="this.url"/> -->
+                                    <img class="left-weather-logo" :src="this.iconList[this.$store.state.weatherList.img]"/>
                                 </div>
-                                <div class="left-weather-info">{{this.$store.state.text}}</div>
+                                <div class="left-weather-info">{{this.$store.state.weatherList.weather}}</div>
                             </div>
 
                             <div class="weather-right">
-                                <div class="city">{{this.$store.state.forcastCity}}  <!--同步Vuex中的数据-->
-                                    <span class="temperature">{{this.$store.state.temperature}}
+                                <div class="city">{{this.$store.state.weatherList.city}}  <!--同步Vuex中的数据-->
+                                    <span class="temperature">{{this.$store.state.weatherList.temp}}
                                         <span>&#176;</span>
                                     </span>                                   
                                 </div>
-                                <div class="temperature-today"> 今天：27~37
+                                <div class="temperature-today"> 今天：{{this.$store.state.weatherList.templow}}~{{this.$store.state.weatherList.temphigh}}
                                     <span>&#8451;</span>
                                 </div>
-                                <div class="wind">东北风5级</div>
+                                <div class="wind">{{this.$store.state.weatherList.winddirect + this.$store.state.weatherList.windpower}}</div>
                             </div>      
                     </div>
             </swiper-slide>
@@ -29,7 +30,8 @@
                     <div class="info-wrapper">
                             <div class="weather-left">
                                 <div class="img-wrapper">  
-                                    <img class="left-weather-logo" :src="this.iconList[this.$store.state.code]" />
+                                    <!-- <img class="left-weather-logo" :src="this. iconList[this.$store.state.weatherList.img].Url"/> -->
+                                    <img class="left-weather-logo" :src="this.iconList[this.$store.state.weatherList.img]"/>
                                 </div>
                                 <div class="left-weather-info">多云</div>
                             </div>
@@ -55,54 +57,141 @@ export default {
     name:'HomeWeather',
     data (){
         return{
+            number:'',
+            url:'',
             swiperOption:{
              loop: true
              },
-             iconList:['https://s1.sencdn.com/web/icons/black/0@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/1@1x.png',
-                      'https://s3.sencdn.com/web/icons/black/2@1x.png',
-                      'https://s4.sencdn.com/web/icons/black/3@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/4@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/5@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/6@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/7@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/8@1x.png',
-                      'https://s4.sencdn.com/web/icons/black/9@1x.png',
-                      'https://s4.sencdn.com/web/icons/black/10@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/11@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/12@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/13@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/14@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/15@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/16@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/17@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/18@1x.png',
-                      'https://s4.sencdn.com/web/icons/black/19@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/20@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/21@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/22@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/23@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/24@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/25@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/26@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/27@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/28@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/29@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/30@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/31@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/32@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/33@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/34@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/35@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/36@1x.png',
-                      'https://s1.sencdn.com/web/icons/black/37@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/38@1x.png',
-                      'https://s5.sencdn.com/web/icons/black/99@1x.png'
-                      ]  
+             iconList:[ 
+                        'https://s1.sencdn.com/web/icons/black/0@1x.png',
+                  
+                        'https://s5.sencdn.com/web/icons/black/4@1x.png',
+                          
+                        'https://s4.sencdn.com/web/icons/black/9@1x.png',
+                            
+                        'https://s4.sencdn.com/web/icons/black/10@1x.png',
+                           
+                        'https://s4.sencdn.com/web/icons/black/11@1x.png',
+                            
+                        'https://s1.sencdn.com/web/icons/black/12@1x.png',
+                         
+                        'https://s5.sencdn.com/web/icons/black/20@1x.png',
+                          
+                        'https://s1.sencdn.com/web/icons/black/13@1x.png',
+                        
+                        'https://s1.sencdn.com/web/icons/black/0@1x.png',
+                          
+                        'https://s5.sencdn.com/web/icons/black/4@1x.png',
+                        
+                        'https://s4.sencdn.com/web/icons/black/9@1x.png',
+                        
+                        'https://s4.sencdn.com/web/icons/black/10@1x.png',
+                         
+                        'https://s4.sencdn.com/web/icons/black/11@1x.png',
+                           
+                        'https://s1.sencdn.com/web/icons/black/12@1x.png',
+                          
+                        'https://s5.sencdn.com/web/icons/black/20@1x.png',
+                         
+                        'https://s1.sencdn.com/web/icons/black/13@1x.png',
+                          
+                         'https://s1.sencdn.com/web/icons/black/12@1x.png',
+                           
+                         'https://s5.sencdn.com/web/icons/black/20@1x.png',
+                            
+                         'https://s1.sencdn.com/web/icons/black/13@1x.png'                         
+                 ]  
+                //  iconList:[ { id:'0',
+                //             text:'晴',
+                //             Url:'https://s1.sencdn.com/web/icons/black/0@1x.png'
+                //             },
+                //             { id:'1',
+                //             text:'多云',
+                //             Url:'https://s5.sencdn.com/web/icons/black/4@1x.png'
+                //             },
+                //             { id:'2',
+                //             text:'阴',
+                //             Url:'https://s4.sencdn.com/web/icons/black/9@1x.png'
+                //             },
+                //             { id:'3',
+                //             text:'阵雨',
+                //             Url:'https://s4.sencdn.com/web/icons/black/10@1x.png'
+                //             },
+                //             { id:'4',
+                //             text:'雷阵雨',
+                //             Url:'https://s4.sencdn.com/web/icons/black/11@1x.png'
+                //             },
+                //             { id:'5',
+                //             text:'雷阵雨伴有冰雹',
+                //             Url:'https://s1.sencdn.com/web/icons/black/12@1x.png'
+                //             },
+                //             { id:'6',
+                //             text:'雨夹雪',
+                //             Url:'https://s5.sencdn.com/web/icons/black/20@1x.png'
+                //             },
+                //             { id:'7',
+                //             text:'小雨',
+                //             Url:'https://s1.sencdn.com/web/icons/black/13@1x.png'
+                //             },
+                //             { id:'8',
+                //             text:'中雨',
+                //             Url:'https://s1.sencdn.com/web/icons/black/0@1x.png'
+                //             },
+                //             { id:'9',
+                //             text:'大雨',
+                //             Url:'https://s5.sencdn.com/web/icons/black/4@1x.png'
+                //             },
+                //             { id:'10',
+                //             text:'暴雨',
+                //             Url:'https://s4.sencdn.com/web/icons/black/9@1x.png'
+                //             },
+                //             { id:'11',
+                //             text:'大暴雨',
+                //             Url:'https://s4.sencdn.com/web/icons/black/10@1x.png'
+                //             },
+                //             { id:'12',
+                //             text:'特大暴雨',
+                //             Url:'https://s4.sencdn.com/web/icons/black/11@1x.png'
+                //             },
+                //             { id:'13',
+                //             text:'阵雪',
+                //             Url:'https://s1.sencdn.com/web/icons/black/12@1x.png'
+                //             },
+                //             { id:'14',
+                //             text:'小雪',
+                //             Url:'https://s5.sencdn.com/web/icons/black/20@1x.png'
+                //             },
+                //             { id:'15',
+                //             text:'中雪',
+                //             Url:'https://s1.sencdn.com/web/icons/black/13@1x.png'
+                //             },
+                //             { id:'16',
+                //             text:'大雪',
+                //             Url:'https://s1.sencdn.com/web/icons/black/12@1x.png'
+                //             },
+                //             { id:'17',
+                //             text:'暴雪',
+                //             Url:'https://s5.sencdn.com/web/icons/black/20@1x.png'
+                //             },
+                //             { id:'18',
+                //             text:'雾',
+                //             Url:'https://s1.sencdn.com/web/icons/black/13@1x.png'
+                //             }
+                //  ]  
             }
+     },
+     methods:{
+         geturl (){
+            this.number=this.$store.state.weatherList.img
+            // console.log(this.number)
+            //  console.log(this.$store.state.weatherList.img)
+            //  console.log(this. iconList[this.$store.state.weatherList.img].Url)
+            // console.log(this.iconList[this.number])
+            //this.url=this.iconList[this.$store.state.weatherList.img].Url
+
+         }
      }
-  
-    
+     
 }
 </script>
 

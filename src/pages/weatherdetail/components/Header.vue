@@ -4,15 +4,17 @@
             <div class="iconfont header-abs-back">&#xe659;</div>
         </router-link>
          <div class="header-info">
-            <p class="city">{{this.$store.state.forcastCity}}</p>
-            <p class="publish-time">{{this.$store.state.time.slice(11,16)}} 发布</p>
+            <router-link tag="p" to="/addcity" class="city">
+                 <span class="iconfont more">&#xe602;</span>
+                 {{this.$store.state.weatherList.city}}
+            </router-link>
+            <p class="publish-time">{{this.$store.state.weatherList.updatetime.slice(11,16)}} 发布</p>
         </div>
    </div>
 </template>
 <script>
 export default {
     name:'WeatherHeader',
-   
     
 }
 </script>
@@ -43,6 +45,9 @@ export default {
                 text-align:center 
                 font-size:.4rem
                 color:#fff
+                .more
+                    font-size:.35rem 
+                    color:white
             .publish-time
                 height:.38 rem
                 text-align:center

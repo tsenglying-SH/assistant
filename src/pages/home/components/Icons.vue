@@ -14,29 +14,29 @@
             </div>
             <p class="icon-desc">垃圾分类查询</p>
         </router-link>
-        <div class="icon">
+        <router-link tag="div" class="icon" to="/destinationdetail">
             <div class="icon-img">
                 <img class="icon-img-content"
-                 src="http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png" />
+                 src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
             </div>
-            <p class="icon-desc">水上乐园</p>
-        </div>
+            <p class="icon-desc">热门景点</p>
+        </router-link>
 
-        <div class="icon">
+        <router-link tag="div" class="icon" to="/towerdetail">
             <div class="icon-img">
                 <img class="icon-img-content"
-                 src="http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/3ef092d0a89ffddb7f781cda30c8ae49.png" />
+                 src="@/assets/photos/11.jpg" />
             </div>
-            <p class="icon-desc">暑期大促</p>
-        </div>
+            <p class="icon-desc">东方明珠</p>
+        </router-link>
 
-        <div class="icon">
+        <router-link tag="div" class="icon" to="/aquariumdetail">
             <div class="icon-img">
                 <img class="icon-img-content"
-                 src="http://img1.qunarzz.com/piao/fusion/1803/f5/c4c9d9830404e602.png" />
+                 src="https://img1.qunarzz.com/piao/fusion/1810/50/26ffa31b56646402.png" />
             </div>
-            <p class="icon-desc">室内娱乐</p>
-        </div>
+            <p class="icon-desc">海昌海洋馆</p>
+       </router-link>
 
         <router-link tag="div" class="icon" to="/gardendetail">
             <div class="icon-img">

@@ -2,7 +2,7 @@
     <div>
         <detail-banner></detail-banner>
         <detail-header></detail-header>
-        <detail-list :list="list"></detail-list>
+        <detail-list :list1="list1"  :list2="list2"></detail-list>
     </div>
 
 </template>
@@ -14,28 +14,29 @@ export default {
     name:'Mayadetail',
     data (){
         return{
-            list:[{
-                title:'成人票',
-                children:[{
-                           title:'成人二联票',
-                            
-                        },
-                        {
-                            title:'成人三联票'
-                        },
-                        {
-                            title:'成人五联票'
-                        }]
-
+             list1:[{
+                title:'【早订优惠】成人全日票', money:'210'
             },
             {
-                title:'儿童票'
+                title:'【即买即用】成人全日票',money:'210'
             },
             {
-                title:'老人票'
+                title:'【早订优惠】夜场票',money:'180'
             },
             {
-                title:'特价票'
+                title:'【即买即用】夜场成人票',money:'190'
+            },
+            {
+                title:'【双次入园】成人票',money:'315'
+            },],
+            list2:[{
+                title:'玛雅水公园长者票', money:'140'
+            },
+            {
+                title:'【早订早惠】夜场票',money:'140'
+            },
+            {
+                title:'玛雅水公园儿童票',money:'140'
             },]
         }
     },

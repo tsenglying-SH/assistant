@@ -2,7 +2,7 @@
     <div>
         <detail-banner></detail-banner>
         <detail-header></detail-header>
-        <detail-list :list="list"></detail-list>
+        <detail-list :list1="list1"  :list2="list2"></detail-list>
     </div>
 
 </template>
@@ -14,29 +14,14 @@ export default {
     name:'Gardendetail',
     data (){
         return{
-            list:[{
-                title:'成人票',
-                children:[{
-                           title:'成人二联票', 
-                            
-                        },
-                        {
-                            title:'成人三联票'
-                        },
-                        {
-                            title:'成人五联票'
-                        }]
-
+            list1:[{
+                title:'辰山植物园成人票', money:'60'
             },
-            {
-                title:'儿童票'
+            ],
+            list2:[{
+                title:'辰山植物园电子导览', money:'2'
             },
-            {
-                title:'老人票'
-            },
-            {
-                title:'特价票'
-            },]
+            ]
         }
     },
     components:{

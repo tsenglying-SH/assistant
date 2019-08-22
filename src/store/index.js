@@ -10,8 +10,10 @@ export default new Vuex.Store({
         imgcode:'',
         temperature:'',
         time:'',
-        newslist:''
-
+        newslist:'',
+        garbageName:'',
+        weatherList:'',
+        addCityList:[]
 
     },
     actions:{
@@ -47,6 +49,18 @@ export default new Vuex.Store({
         getNews (state,list){
                 state.newslist=list
                 // console.log(state.newslist)
+        },
+        getGarbageName (state,name){
+                state.garbageName=name
+        },
+        getWeather (state,list){
+            state.weatherList=list
+            //localStorage.weatherList=list
+        },
+        getAddCityList (state,cityItem){
+            state.addCityList.push(cityItem)
+            console.log(state.addCityList +'来自仓库')
+            console.log(state.addCityList.length)
         }
 
 

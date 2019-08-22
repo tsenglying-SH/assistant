@@ -4,21 +4,40 @@
             <div class="iconfont search-icon">&#xe63c;</div>
        </div>
        <input v-model="keyword" class="seach-input" type="text" 
-            placeholder="输入要查询的内容"/>
-        <div class="right " >
+            @keyup.enter="handelSubmit"
+            placeholder="输入要查询的垃圾"/>
+        <div class="right" @click="handelSubmit">
             <span class="right-content"> 查询</span>
         </div>
       
    </div>
 </template>
 <script>
+import axios from 'axios'  
 export default {
     name:'GarbageSearch',
     data(){
         return{
-            keyword:''
+            keyword:'',
+            classfication:'',
+            
+        }
+    },
+    methods:{
+        handelSubmit (){
+              axios.get('/getgarbagebyname/'+this.keyword)
+              .then( res=> {
+                  if(res.data){
+                        this.$store.commit('getGarbageName',res.data.name)
+                        this.classfication=res.data.classfication
+                        this.$emit('getClass',this.classfication)
+                  }else{
+                      this.$emit('getNone')
+                  }
+              })
         }
     }
+    
     
 }
 </script>

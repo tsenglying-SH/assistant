@@ -13,6 +13,11 @@ import Zoodetail from '@/pages/zoodetail/Zoodetail'
 import Mayadetail from '@/pages/mayadetail/Mayadetail'
 import Gardendetail from '@/pages/gardendetail/Gardendetail'
 import Garbagedetail from '@/pages/garbagedetail/Garbagedetail'
+import TowerDetail from '@/pages/towerdetail/Towerdetail'
+import Aquariumdetail from '@/pages/aquariumdetail/Aquariumdetail'
+import Destinationdetail from '@/pages/destinationdetail/Destinationdetail'
+import AddCity from '@/pages/addcity/AddCity'
+import SearchCity from '@/pages/addmorecity/City'
 
 
 Vue.use(Router)
@@ -84,6 +89,31 @@ export default new Router({
       name: 'Garbagedetail',
       component:Garbagedetail
     },
+    {
+      path: '/towerdetail',
+      name: 'TowerDetail',
+      component:TowerDetail
+    },
+    {
+      path: '/aquariumdetail',
+      name: 'Aquariumdetail',
+      component:Aquariumdetail
+    },{
+      path: '/destinationdetail',
+      name: 'Destinationdetail',
+      component:Destinationdetail
+    },
+    {
+      path: '/addcity',
+      name: 'AddCity',
+      component:AddCity
+    },
+    {
+      path: '/addmorecity',
+      name: 'SearchCity',
+      component:SearchCity
+    },
+    
 
 
     

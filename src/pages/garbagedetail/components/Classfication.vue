@@ -104,6 +104,8 @@
         <common-alert4 v-show="showAlert4"
         @close="handleAlert4Close"
         :name="name"></common-alert4>
+        <common-alert5 v-show="showAlert5"
+        @close="handleAlert5Close"></common-alert5>
      </div>   
 </template>
 <script>
@@ -111,20 +113,29 @@ import CommonAlert1 from '@/common/garbagealert/GarbageAlert1'
 import CommonAlert2 from '@/common/garbagealert/GarbageAlert2'
 import CommonAlert3 from '@/common/garbagealert/GarbageAlert3'
 import CommonAlert4 from '@/common/garbagealert/GarbageAlert4'
+import CommonAlert5 from '@/common/garbagealert/GarbageAlert5'
 export default {
     name:'GarbageClassfication',
     components:{
         CommonAlert1,
         CommonAlert2,
         CommonAlert3,
-        CommonAlert4,  
+        CommonAlert4, 
+        CommonAlert5, 
         },
+        props:{
+            classfication:String    
+        },
+        
+    
     data(){
         return{
+            getclassfication:'',
             showAlert1:false,
             showAlert2:false,
             showAlert3:false,
             showAlert4:false,
+            showAlert5:false,
             showItem1:true,
             showItem2:false,
             showItem3:false,
@@ -160,6 +171,26 @@ export default {
         }
     },
     methods:{
+
+        fatherShow1 (){
+            this.showAlert1=true
+            this.name=this.$store.state.garbageName
+        },
+        fatherShow2 (){
+            this.showAlert2=true
+            this.name=this.$store.state.garbageName
+        },
+        fatherShow3 (){
+            this.showAlert3=true
+            this.name=this.$store.state.garbageName
+        },
+        fatherShow4 (){
+            this.showAlert4=true
+            this.name=this.$store.state.garbageName
+        },
+        fatherShow5 (){
+            this.showAlert5=true
+        },
        
         handleGood1Click (item){
             this.name=item
@@ -188,6 +219,9 @@ export default {
         },
         handleAlert4Close (){
             this.showAlert4=false
+        },
+        handleAlert5Close (){
+            this.showAlert5=false
         },
          handleItem1Click (){
             this.showItem1=true,

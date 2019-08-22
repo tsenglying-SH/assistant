@@ -12,11 +12,13 @@ import './assets/styles/iconfont.css'
 import './assets/styles/iconfont_1.css'
 import 'swiper/dist/css/swiper.css'
 import axios from 'axios'
+import VueBus from 'vue-bus'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 axios.defaults.withCredentials=true
+Vue.prototype.bus=new Vue()
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

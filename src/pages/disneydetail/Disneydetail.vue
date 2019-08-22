@@ -2,7 +2,7 @@
     <div>
         <detail-banner></detail-banner>
         <detail-header></detail-header>
-        <detail-list :list="list"></detail-list>
+        <detail-list :list1="list1" :list2="list2"></detail-list>
     </div>
 
 </template>
@@ -14,36 +14,45 @@ export default {
     name:'Disneydetail',
     data (){
         return{
-            list:[{
-                title:'成人票',
-                children:[{
-                           title:'成人二联票',
-                            
-                        },
-                        {
-                            title:'成人三联票'
-                        },
-                        {
-                            title:'成人五联票'
-                        }]
-
+            
+            list1:[{
+                title:'成人票', money:'543'
             },
             {
-                title:'儿童票'
+                title:'儿童票',money:'431'
             },
             {
-                title:'老人票'
+                title:'老人票',money:'431'
             },
             {
-                title:'特价票'
+                title:'票+车+导',money:'466'
+            },
+            {
+                title:'双人票',money:'1150'
+            },
+            {
+                title:'亲子票',money:'1106'
+            },
+            {
+                title:'家庭票',money:'1581'
+            },],
+            list2:[{
+                title:'双人票', money:'2026'
+            },
+            {
+                title:'亲子票',money:'1808'
+            },
+            {
+                title:'家庭票',money:'2842'
             },]
         }
     },
     components:{
         DetailBanner,
         DetailHeader,
-        DetailList
-    }
+        DetailList,
+    }, 
+
 }
 </script>
 

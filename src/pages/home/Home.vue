@@ -68,10 +68,12 @@ export default {
              }
          },
          getWeatherInfo (){
-            axios.get('/api/now.json?key=SHMXyPLmxedgN3Oir&location=' + this.$store.state.city + '&language=zh-Hans&unit=c')
+            axios.get('/api/query?appkey=661d0fffc21f971f&city=' + this.$store.state.city)
                 .then( res=>{
-                    this.$store.commit('getLocation',res.data.results[0].location);
-                    this.$store.commit('getNow',res.data.results[0].now);
+                    // console.log(res.data.result.city)
+                     this.$store.commit('getWeather',res.data.result)
+                    // this.$store.commit('getLocation',res.data.results[0].location);
+                    // this.$store.commit('getNow',res.data.results[0].now);
                     //this.$store.commit('getLast_update',res.data.results[0].last_update);
                     })
             },
