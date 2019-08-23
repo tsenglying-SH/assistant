@@ -27,18 +27,15 @@ export default {
             last_update:""
         }
     },
-    
-        // getWeatherInfoSucc (res){
-        //     res=res.data
-        //     if (res.results){
-        //         const results=res.results[0]
-        //         this.location=results.location
-        //         this.now=results.now
-        //         this.last_update=results.last_update
-        //     }
-            
-        // }
-    
+    created (){
+        this.bus.$on('Trans',(city)=>{
+            console.log('城市详情监听到'+city)
+            axios.get('/api/query?appkey=661d0fffc21f971f&city=' + city)
+                .then( res=>{                
+                     this.$store.commit('getWeather',res.data.result)
+                    })
+        })
+    }
 }
 </script>
 

@@ -57,6 +57,10 @@ export default new Vuex.Store({
             state.weatherList=list
             //localStorage.weatherList=list
         },
+        changeWeather (state,list){
+            state.weatherList=list
+
+        },
         getAddCityList (state,cityItem){
             state.addCityList.push(cityItem)
             console.log(state.addCityList +'来自仓库')

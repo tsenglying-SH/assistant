@@ -72,6 +72,7 @@ export default {
                 .then( res=>{
                     // console.log(res.data.result.city)
                      this.$store.commit('getWeather',res.data.result)
+                     this.$store.commit('getAddCityList',res.data.result)
                     // this.$store.commit('getLocation',res.data.results[0].location);
                     // this.$store.commit('getNow',res.data.results[0].now);
                     //this.$store.commit('getLast_update',res.data.results[0].last_update);

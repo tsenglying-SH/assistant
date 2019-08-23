@@ -54,7 +54,6 @@ export default {
         handleCityClick (city){
              axios.get('/api/query?appkey=661d0fffc21f971f&city=' + city)
                 .then( res=>{
-                     console.log(res.data.result +'来自于添加城市页面')
                      this.$store.commit('getAddCityList',res.data.result)
                       this.bus.$emit('addCity')
                       this.$router.push('/addcity') 

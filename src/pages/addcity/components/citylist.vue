@@ -2,118 +2,202 @@
    <div class="list">
        <div class="list-item" v-if="showCity1">
            <div class="city border-bottom">
-               <span class="city-name">{{this.$store.state.weatherList.city}}</span>
+               <span class="city-name">{{this.$store.state.addCityList[0].city}}</span>
                <span class="iconfont setting" v-show="showSetting" 
                 @click="handleDeleteClick1">&#xe690;</span>
            </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.weatherList.img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">{{this.$store.state.weatherList.daily[0].day.temphigh}}<span>&#176;</span></div>
-                   <div class="low">{{this.$store.state.weatherList.daily[0].night.templow}}<span>&#176;</span></div>
-               </div>
-           </div>
-           <div class="text">{{this.$store.state.weatherList.weather}}</div>
-           <div class="remind">提醒城市</div>
-       </div>
-         <div class="list-item1" v-if="showCity7">
-           <div class="city border-bottom">武汉
-                <span class="iconfont setting" v-show="showSetting" 
-                @click="handleDeleteClick7">&#xe690;</span>
-           </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.weatherList.img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">34<span>&#176;</span></div>
-                   <div class="low">25<span>&#176;</span></div>
-               </div>
-           </div>
-           <div class="text">{{this.$store.state.weatherList.weather}}</div>
-       </div>  
+           <router-link tag="div" @click.native="handleDetail1()"
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[0].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[0].daily[0].day.temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[0].daily[0].night.templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[0].weather}}</div>
+                <div class="remind">提醒城市</div>
+            </router-link>
+        </div>
+       
         <div class="list-item1" v-if="showCity2">
-           <div class="city border-bottom">{{this.$store.state.addCityList[0].city}}
-               <span class="iconfont setting" v-show="showSetting" 
-                @click="handleDeleteClick2">&#xe690;</span>
-           </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[0].img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">{{this.$store.state.addCityList[0].temphigh}}<span>&#176;</span></div>
-                   <div class="low">{{this.$store.state.addCityList[0].templow}}<span>&#176;</span></div>
-               </div>
-           </div>
-           <div class="text">{{this.$store.state.addCityList[0].weather}}</div>
-       </div>
-       <div class="list-item1" v-if="showCity3">
            <div class="city border-bottom">{{this.$store.state.addCityList[1].city}}
+               <span class="iconfont setting" v-show="showSetting" 
+                @click="handleDeleteClick2()">&#xe690;</span>
+           </div>
+           <router-link tag="div" @click.native="handleDetail2()" 
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[1].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[1].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[1].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[1].weather}}</div>
+            </router-link>
+        </div>
+
+       <div class="list-item1" v-if="showCity3">
+           <div class="city border-bottom">{{this.$store.state.addCityList[2].city}}
                 <span class="iconfont setting" v-show="showSetting" 
                 @click="handleDeleteClick3">&#xe690;</span>
            </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[1].img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">{{this.$store.state.addCityList[1].temphigh}}<span>&#176;</span></div>
-                   <div class="low">{{this.$store.state.addCityList[1].templow}}<span>&#176;</span></div>
-               </div>
-           </div>
-           <div class="text">{{this.$store.state.addCityList[1].weather}}</div>
-       </div>
+           <router-link tag="div" @click.native="handleDetail3()"
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[2].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[2].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[2].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[2].weather}}</div>
+            </router-link>
+        </div>
+
        <div class="list-item1" v-if="showCity4">
-           <div class="city border-bottom">{{this.$store.state.addCityList[2].city}}
+           <div class="city border-bottom">{{this.$store.state.addCityList[3].city}}
                 <span class="iconfont setting" v-show="showSetting" 
                 @click="handleDeleteClick4">&#xe690;</span>
            </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[2].img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">{{this.$store.state.addCityList[2].temphigh}}<span>&#176;</span></div>
-                   <div class="low">{{this.$store.state.addCityList[2].templow}}<span>&#176;</span></div>
-               </div>
-           </div>
-           <div class="text">{{this.$store.state.addCityList[2].weather}}</div>
-       </div>
+           <router-link tag="div" @click.native="handleDetail4()" 
+           to="/weatherdetail">
+                 <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[3].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[3].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[3].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[3].weather}}</div>
+            </router-link>
+        </div>
+
        <div class="list-item1" v-if="showCity5">
-           <div class="city border-bottom">{{this.$store.state.addCityList[3].city}}
+           <div class="city border-bottom">{{this.$store.state.addCityList[4].city}}
                 <span class="iconfont setting" v-show="showSetting" 
                 @click="handleDeleteClick5">&#xe690;</span>
            </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[3].img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">{{this.$store.state.addCityList[3].temphigh}}<span>&#176;</span></div>
-                   <div class="low">{{this.$store.state.addCityList[3].templow}}<span>&#176;</span></div>
-               </div>
-           </div>
-           <div class="text">{{this.$store.state.addCityList[3].weather}}</div>
-       </div>
+           <router-link tag="div" @click.native="handleDetail5()" 
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[4].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[4].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[4].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[4].weather}}</div>
+            </router-link>
+        </div>
+
        <div class="list-item1" v-if="showCity6">
-           <div class="city border-bottom">{{this.$store.state.addCityList[4].city}}
+           <div class="city border-bottom">{{this.$store.state.addCityList[5].city}}
                 <span class="iconfont setting" v-show="showSetting" 
                 @click="handleDeleteClick6">&#xe690;</span>
            </div>
-           <div class="weather">
-               <div class="weather-left">
-                   <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[4].img]"  />
-               </div>
-               <div class="weather-right">
-                   <div class="height">{{this.$store.state.addCityList[4].temphigh}}<span>&#176;</span></div>
-                   <div class="low">{{this.$store.state.addCityList[4].templow}}<span>&#176;</span></div>
-               </div>
+           <router-link tag="div" @click.native="handleDetail6()" 
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[5].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[5].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[5].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[5].weather}}</div>
+            </router-link>
+        </div>
+
+        <div class="list-item1" v-if="showCity7">
+           <div class="city border-bottom">{{this.$store.state.addCityList[6].city}}
+               <span class="iconfont setting" v-show="showSetting" 
+                @click="handleDeleteClick7">&#xe690;</span>
            </div>
-           <div class="text">{{this.$store.state.addCityList[4].weather}}</div>
-       </div>
+           <router-link tag="div" @click.native="handleDetail7()" 
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[6].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[6].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[6].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[6].weather}}</div>
+           </router-link>
+        </div>
+
+       <div class="list-item1" v-if="showCity8">
+           <div class="city border-bottom">{{this.$store.state.addCityList[7].city}}
+                <span class="iconfont setting" v-show="showSetting" 
+                @click="handleDeleteClick8">&#xe690;</span>
+           </div>
+           <router-link tag="div" @click.native="handleDetail8()" 
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[7].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[7].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[7].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[7].weather}}</div>
+            </router-link>
+        </div>
+       <div class="list-item1" v-if="showCity9">
+           <div class="city border-bottom">{{this.$store.state.addCityList[8].city}}
+                <span class="iconfont setting" v-show="showSetting" 
+                @click="handleDeleteClick9">&#xe690;</span>
+           </div>
+           <router-link tag="div" @click.native="handleDetail9()" 
+           to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[8].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[8].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[8].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[8].weather}}</div>
+            </router-link>
+        </div>
+       <div class="list-item1" v-if="showCity10">
+           <div class="city border-bottom">{{this.$store.state.addCityList[9].city}}
+                <span class="iconfont setting" v-show="showSetting" 
+                @click="handleDeleteClick10">&#xe690;</span>
+           </div>
+           <router-link tag="div" @click.native="handleDetail10()" to="/weatherdetail">
+                <div class="weather">
+                    <div class="weather-left">
+                        <img class="weather-img" :src="this.iconList[this.$store.state.addCityList[8].img]"  />
+                    </div>
+                    <div class="weather-right">
+                        <div class="height">{{this.$store.state.addCityList[8].temphigh}}<span>&#176;</span></div>
+                        <div class="low">{{this.$store.state.addCityList[8].templow}}<span>&#176;</span></div>
+                    </div>
+                </div>
+                <div class="text">{{this.$store.state.addCityList[8].weather}}</div>
+            </router-link>
+        </div>
 
        <router-link tag="div" to="addmorecity" class="list-item2">
            <p class="iconfont more">&#xe602;</p>
@@ -133,7 +217,11 @@ export default {
             showCity4:false,
             showCity5:false,
             showCity6:false,
-            showCity7:true,
+            showCity7:false,
+            showCity8:false,
+            showCity9:false,
+            showCity10:false,
+
             showcityList:false,
             iconList:[ 
                         'https://s1.sencdn.com/web/icons/black/0@1x.png',                 
@@ -181,28 +269,44 @@ export default {
                 console.log('处理增加')
                  switch(this.calculate){
                      case 1:
-                        console.log('1')
-                        this.showCity2=true
+                        console.log('city 1 show')
+                        this.showCity1=true
                         break
                      case 2:
-                        this.showCity3=true
-                        console.log('2')
+                        this.showCity2=true
+                        console.log('city 2 show')
                         break
                      case 3:
-                        this.showCity4=true
-                        console.log('3')
+                        this.showCity3=true
+                        console.log('city 3 show')
                         break
                      case 4:
-                        this.showCity5=true
+                        this.showCity4=true
                         console.log('4')
                         break
                      case 5:
-                        this.showCity6=true
+                        this.showCity5=true
                         console.log('5')
                         break
                      case 6:
-                        this.showCity7=true
+                        this.showCity6=true
                         console.log('6')
+                        break
+                    case 7:
+                        this.showCity7=true
+                        console.log('7')
+                        break
+                     case 8:
+                        this.showCity8=true
+                        console.log('8')
+                        break
+                     case 9:
+                        this.showCity9=true
+                        console.log('9')
+                        break
+                    case 10:
+                        this.showCity10=true
+                        console.log('10')
                         break
                  }
 
@@ -230,8 +334,46 @@ export default {
            },
             handleDeleteClick7 (){
                this.showCity7=false
+           },
+           handleDeleteClick8 (){
+               this.showCity8=false
+           },
+            handleDeleteClick9 (){
+               this.showCity9=false
+           },
+            handleDeleteClick10 (){
+               this.showCity10=false
+           },
+            handleDetail1 (){
+                this.bus.$emit('Trans',this.$store.state.addCityList[0].city)
+            },
+           handleDetail2 (){
+               this.bus.$emit('Trans',this.$store.state.addCityList[1].city)
+           },
+           handleDetail3 (){
+                this.bus.$emit('Trans',this.$store.state.addCityList[2].city)
+            },
+           handleDetail4 (){
+               this.bus.$emit('Trans',this.$store.state.addCityList[3].city)
+           },
+           handleDetail5 (){
+                this.bus.$emit('Trans',this.$store.state.addCityList[4].city)
+            },
+           handleDetail6 (){
+               this.bus.$emit('Trans',this.$store.state.addCityList[5].city)
+           },
+           handleDetail7 (){
+                this.bus.$emit('Trans',this.$store.state.addCityList[6].city)
+            },
+           handleDetail8 (){
+               this.bus.$emit('Trans',this.$store.state.addCityList[7].city)
+           },
+           handleDetail9 (){
+                this.bus.$emit('Trans',this.$store.state.addCityList[8].city)
+            },
+           handleDetail10 (){
+               this.bus.$emit('Trans',this.$store.state.addCityList[9].city)
            }
-
         },
 }
 </script>

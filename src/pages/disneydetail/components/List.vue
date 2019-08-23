@@ -23,7 +23,7 @@
                         <p class="money">{{item.money}}</p>
                     </div>
                     <button class="right-second" 
-                    @click="handleOrderClick(item.title,item.money,item.deadline)">
+                    @click="handleOrderClick(item.title,item.money)">
                     预定</button>
                 </div>
             </div>
@@ -110,10 +110,9 @@ export default {
         handleClose (){
             this.showNotice=false
         },
-        handleOrderClick (ptitle,pmoney,pdeadline){
+        handleOrderClick (ptitle,pmoney){
             this.title=ptitle
             this.money=pmoney
-            this.deadline=pdeadline
             this.showOrder=true
         }
     },
