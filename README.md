@@ -26,9 +26,11 @@
    新闻接口:极速数据https://api.jisuapi.com 每天有100次的免费访问量
    
 ## 项目展示：
-  首页部分：
+  ### 首页部分：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/51.jpg)
   
-   
+   ### 天气详情：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/52.png)
 > A Vue.js project
 
 ## Build Setup
