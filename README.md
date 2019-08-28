@@ -1,5 +1,30 @@
 #生活小助手
+这是一个基于Vue的前端项目，通过这个项目可以达到一个Vue入门的效果，只做了首页部分，包括7个二级页面的开发，
+可以实现看天气预报、阅读新闻、查询垃圾分类、查看附近景点等功能，代码量5千行的水平。
 
+#开发环境：Vue.js 2.96  VScode  node.js
+
+#辅助工具：vue-cli,webpack
+
+#用到的核心插件：Vue-router,axios,Vuex，better-scroll,vue-lazyload 
+
+#后端用的是Springboot+Mysql+Mybatis,做了一个简易的垃圾数据库，可以通过前端访问实现垃圾分类的功能。
+由于后端代码很少，就没有往上面贴了。
+
+#API选择：
+   这里有几个地方用到了免费的API接口
+   
+   背景壁纸接口：必应壁纸https://api.neweb.top/bing.php?type=rand
+   
+   天气预报接口：极速数据https://api.jisuapi.com 新用户可以免费申请1千次的访问量，后续需要缴费；也可以用免费的心知天气接口
+                https://www.seniverse.com 但是数据项没有那么多，可以用来学习。
+                
+   新闻接口:极速数据https://api.jisuapi.com 每天有100次的免费访问量
+   
+#项目展示：
+  首页部分：
+  
+   
 > A Vue.js project
 
 ## Build Setup
