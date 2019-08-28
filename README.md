@@ -31,6 +31,30 @@
   
    ### 天气详情：
   ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/52.png)
+  
+   ### 添加/删除城市：
+ ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/53.png)
+ 
+  ### 城市列表详情：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/54.png)
+  
+   ### 垃圾分类：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/55.png)
+  
+   ### 垃圾分类详情：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/56.png)
+  
+   ### 天气详情：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/52.png)
+  
+   ### 景点详情：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/64.png)
+  
+   ### 新闻列表：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/66.png)
+ 
+  ### 新闻详情：
+  ![image](https://github.com/tsenglying-SH/assistant/blob/master/images/67.png)
 > A Vue.js project
 
 ## Build Setup
