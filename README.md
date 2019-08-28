@@ -2,11 +2,14 @@
 这是一个基于Vue的前端项目，通过这个项目可以达到一个Vue入门的效果，只做了首页部分，包括7个二级页面的开发，
 可以实现看天气预报、阅读新闻、查询垃圾分类、查看附近景点等功能，代码量5千行的水平。
 
-# 开发环境：Vue.js 2.96  VScode  node.js
+# 开发环境：
+   Vue.js 2.96  VScode  node.js
 
-# 辅助工具：vue-cli,webpack
+# 辅助工具：
+   vue-cli,webpack
 
-# 用到的核心插件：Vue-router,axios,Vuex，better-scroll,vue-lazyload 
+# 用到的核心插件：
+  Vue-router,axios,Vuex，better-scroll,vue-lazyload 
 
 # 后端
 用的是Springboot+Mysql+Mybatis,做了一个简易的垃圾数据库，可以通过前端访问实现垃圾分类的功能。
