@@ -12,8 +12,7 @@
   Vue-router,axios,Vuex，better-scroll,vue-lazyload 
 
 ## 后端
-用的是Springboot+Mysql+Mybatis,做了一个简易的垃圾数据库，可以通过前端访问实现垃圾分类的功能。
-由于后端代码很少，就没有往上面贴了。
+用的是Springboot+Mysql+Mybatis,设计了用户表、垃圾分类表、天气信息表等，调用接口拿到数据，存入后台，返给前端实现相应的功能。
 
 ## API选择：
    这里有几个地方用到了免费的API接口
